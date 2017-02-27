@@ -1,0 +1,6 @@
+ /* @CHARSET "ISO-8859-1";
+.navbar-xs { min-height:55px; border-radius:0} 
+.navbar-xs .navbar-brand{ padding: 2px 8px;font-size: 35px;line-height: 25px; } 
+.navbar-xs .navbar-nav > li > a { border-right:1px solid #ddd; padding-top: 2px; padding-bottom: 2px; line-height: 35px }
+
+ */

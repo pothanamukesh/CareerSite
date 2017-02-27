@@ -1,0 +1,73 @@
+<!-- index.html -->
+    <!DOCTYPE html>
+<html data-ng-app='myApp'>
+    <head>
+      <!-- SCROLLS -->
+      <!-- load bootstrap and fontawesome via CDN -->
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+
+      <!-- SPELLS -->
+      <!-- load angular and angular route via CDN -->
+      <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+          <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script> -->
+          <script type="text/javascript" src="resources/angular.min.js"></script>
+           <script type="text/javascript" src="resources/angular-route.js"></script>
+                <script type="text/javascript" src="resources/angular-cookies.js"></script>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+           
+      <script src="app.js"></script>
+      <script type="text/javascript" src="home/mainController.js"></script>
+            <script type="text/javascript" src="about/aboutController.js"></script>
+                  <script type="text/javascript" src="contact/contactController.js"></script>
+                  <script type="text/javascript" src="Users/userctrl.js"></script>
+                     <script type="text/javascript" src="Login/loginctrl.js"></script>
+                        <script type="text/javascript" src="Login/loginService.js"></script>
+    </head>
+    
+    <body >
+
+        <!-- HEADER AND NAVBAR -->
+        <header>
+            <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Angular Routing Example</a>
+                </div>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                    <li><a href="#about"><i class="fa fa-shield"></i> About</a></li>
+                    <li><a href="#contact"><i class="fa fa-comment"></i> Contact</a></li>
+                       <li><a href="#blog"><i class="fa fa-comment"></i> Blog</a></li>
+                  <!--   <li><a href="#register"><i class="fa fa-comment"></i> SingUp</a></li>
+                    
+                    <li><a href="#login"data-ng-hide="globals.currentUser.islogged"><i class="glyphicon glyphicon-log-in"></i></a></li>
+                    
+                    
+               
+                       <li><a href="#login"><i class="fa fa-comment"></i> SingIn</a></li> -->
+                       <li><a href="#register" data-ng-hide="globals.currentUser.islogged"><i class="glyphicon glyphicon-user"></i></a></li>
+					<li><a href="#login"
+						data-ng-hide="globals.currentUser.islogged"><i class="glyphicon glyphicon-log-in"></i></a></li>
+							
+                             <li class=style="padding-top:10px;" data-ng-show="globals.currentUser.islogged"><p style="color:white";>Welcome:{{globals.currentUser.username}}</p></li>
+                       
+                       
+                </ul>
+            </div>
+            </nav>
+        </header>
+
+        <!-- MAIN CONTENT AND INJECTED VIEWS -->
+        
+
+            <!-- angular templating -->
+            <!-- this is where content will be injected -->
+            
+            <div  data-ng-view></div>
+
+        
+
+    </body>
+    </html>

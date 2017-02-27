@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<!-- <script type="text/javascript" src="loginctrl.js"></script>
+<script type="text/javascript" src="loginService.js"></script> -->
+
+</head>
+<body>
+
+ <div class="wrapper">
+ <form class="login" action="" data-ng-submit="vm.login()">
+  
+  <fieldset>
+    
+  	<legend class="legend"><center>Please Login With Valid Credentials</center> </legend>
+    
+    <div class="input">
+     <span><i class="fa fa-envelope-o"></i> User Name</span>
+    	 <input type="text" class="form-control" name="username" placeholder="UserName" required="" autofocus="" data-ng-model="vm.username"/>
+     
+    </div>
+    
+    <div class="input">
+      <span><i class="fa fa-lock"></i>PassWord</span>
+    <input type="password" class="form-control" name="password" placeholder="Password" required="" data-ng-model="vm.password" style="padding-top:10px;"/>
+    
+    </div>
+    
+    <button type="submit" class="submit"><i class="fa fa-long-arrow-right"></i></button>
+    
+  </fieldset>
+  
+  <!-- <div class="feedback">
+  	login successful <br />
+    redirecting...
+  </div> -->
+  
+</form>
+    <!-- <form class="form-signin" action="" data-ng-submit="vm.login()">       
+      <h2 class="form-signin-heading">Please login</h2>
+      <input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" data-ng-model="vm.username"/>
+      <input type="password" class="form-control" name="password" placeholder="Password" required="" data-ng-model="vm.password" style="padding-top:10px;"/>     
+      <label class="checkbox">
+        <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
+      </label>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>   
+    </form> -->
+  </div>
+
+</body>
+</html>

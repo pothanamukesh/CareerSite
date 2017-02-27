@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+</head>
+<body data-ng-app="myApp">
+	<div class="container">
+<form class="form-horizontal" role="form" data-ng-submit="submit()" action="" data-ng-controller="userctrl">
+                <h2>Registration Form</h2>
+                <div class="form-group">
+                    <label for="userName" class="col-sm-3 control-label">User Name</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="userName" placeholder="User Name" required="" data-ng-model="username" class="form-control" autofocus >
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="col-sm-3 control-label">Email</label>
+                    <div class="col-sm-9">
+                        <input type="email" id="email" placeholder="Email" required="" data-ng-model="mail" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="col-sm-3 control-label">Password</label>
+                    <div class="col-sm-9">
+                        <input type="password" id="password" required="" placeholder="Password"  data-ng-model="password" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="birthDate" class="col-sm-3 control-label">Date of Birth</label>
+                    <div class="col-sm-9">
+                        <input type="date" id="birthDate" required="" data-ng-model="dob" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="mobile" class="col-sm-3 control-label">Mobile</label>
+                    <div class="col-sm-9">
+                       <input type="number" id="mobile" placeholder="mobile" required=""  data-ng-model="mobile" class="form-control">
+                    </div>
+                </div> <!-- /.form-group -->
+                <div class="form-group">
+                    <label class="control-label col-sm-3">Gender</label>
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input type="radio" id="femaleRadio" data-ng-model="gender" value="Female">Female
+                                </label>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input type="radio" id="maleRadio" data-ng-model="gender" value="Male">Male
+                                </label>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div> <!-- /.form-group -->
+                <div class="form-group">
+                    <label class="control-label col-sm-3">Role</label>
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input type="radio" id="alumniRadio" data-ng-model="role" value="Alumni">Alumni
+                                </label>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input type="radio" id="studentRadio" data-ng-model="role" value="Student">Student
+                                </label>
+                            </div>
+                           <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input type="radio" id="employeeRadio" data-ng-model="role" value="Employee">Employee
+                                </label>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input type="radio" id="employeeRadio" data-ng-model="role" value="Admin">Admin
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- /.form-group -->
+                <div class="form-group">
+                    <label for="address" class="col-sm-3 control-label">Address</label>
+                    <div class="col-sm-9">
+                        <textarea draggable="true" rows="5" data-ng-model="address" id="address"  class="form-control"></textarea>
+                    </div>
+                </div>
+                 <!-- /.form-group -->
+                <div class="form-group">
+                    <div class="col-sm-9 col-sm-offset-3">
+			<button type="submit" class="btn btn-primary btn-block">Register</button>
+			</div></div>
+            </form> <!-- /form -->
+          
+        </div> <!-- ./container -->
+  
+</body>
+</html>
