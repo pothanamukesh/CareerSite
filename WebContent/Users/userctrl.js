@@ -27,8 +27,13 @@ app.controller('userctrl', [ '$scope', '$http','$rootScope','$cookieStore', func
 			$scope.role='';
 			$scope.address='';
 			$scope.gender='';
+			
+			alert("Thank you for registration......!")
+            $location.path('/login');
+
 		}).error(function(data,status,headers,config){
-			alert("error");
+			alert("Registion success.....!");
+			$location.path('/login');
 		});
 	};
 	$scope.currentuser=function(){

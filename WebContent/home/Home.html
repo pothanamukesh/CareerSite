@@ -5,12 +5,11 @@
 <title>Insert title here</title>
 
 </head>
-<body >
-<h1></h1>
-<div class="jumbotron text-center">
-	<h1>Home Page</h1>
-	
-	<p>{{ message }}</p>
-</div>
+<body data-ng-app='myApp' >
+
+<div  data-ng-show="globals.currentUser.islogged"><a  href="" data-ng-click="vm.logout()">logout</a></div>  
+{{globals.currentUser.role}}
+<h1>Home Page</h1>
+
 </body>
 </html>

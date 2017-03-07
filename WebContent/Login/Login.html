@@ -7,10 +7,10 @@
 <script type="text/javascript" src="loginService.js"></script> -->
 
 </head>
-<body>
+<body data-ng-controller="Usercontroller as vm">
 
  <div class="wrapper">
- <form class="login" action="" data-ng-submit="vm.login()">
+ <form class="login"  data-ng-submit="vm.login()">
   
   <fieldset>
     
@@ -18,13 +18,13 @@
     
     <div class="input">
      <span><i class="fa fa-envelope-o"></i> User Name</span>
-    	 <input type="text" class="form-control" name="username" placeholder="UserName" required="" autofocus="" data-ng-model="vm.username"/>
+    	 <input type="text" class="form-control" name="username" placeholder="UserName" required="" autofocus="" data-ng-model="vm.user.username"/>
      
     </div>
     
     <div class="input">
       <span><i class="fa fa-lock"></i>PassWord</span>
-    <input type="password" class="form-control" name="password" placeholder="Password" required="" data-ng-model="vm.password" style="padding-top:10px;"/>
+    <input type="password" class="form-control" name="password" placeholder="Password" required="" data-ng-model="vm.user.password" style="padding-top:10px;"/>
     
     </div>
     
@@ -32,21 +32,10 @@
     
   </fieldset>
   
-  <!-- <div class="feedback">
-  	login successful <br />
-    redirecting...
-  </div> -->
+ 
   
 </form>
-    <!-- <form class="form-signin" action="" data-ng-submit="vm.login()">       
-      <h2 class="form-signin-heading">Please login</h2>
-      <input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" data-ng-model="vm.username"/>
-      <input type="password" class="form-control" name="password" placeholder="Password" required="" data-ng-model="vm.password" style="padding-top:10px;"/>     
-      <label class="checkbox">
-        <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
-      </label>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>   
-    </form> -->
+   
   </div>
 
 </body>

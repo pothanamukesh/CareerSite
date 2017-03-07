@@ -1,73 +1,138 @@
-<!-- index.html -->
-    <!DOCTYPE html>
-<html data-ng-app='myApp'>
-    <head>
-      <!-- SCROLLS -->
-      <!-- load bootstrap and fontawesome via CDN -->
-      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
-      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+<!DOCTYPE html>
+<html>
+<head>
 
-      <!-- SPELLS -->
-      <!-- load angular and angular route via CDN -->
-      <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
-          <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script> -->
-          <script type="text/javascript" src="resources/angular.min.js"></script>
-           <script type="text/javascript" src="resources/angular-route.js"></script>
-                <script type="text/javascript" src="resources/angular-cookies.js"></script>
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-           
-      <script src="app.js"></script>
-      <script type="text/javascript" src="home/mainController.js"></script>
-            <script type="text/javascript" src="about/aboutController.js"></script>
-                  <script type="text/javascript" src="contact/contactController.js"></script>
-                  <script type="text/javascript" src="Users/userctrl.js"></script>
-                     <script type="text/javascript" src="Login/loginctrl.js"></script>
-                        <script type="text/javascript" src="Login/loginService.js"></script>
-    </head>
-    
-    <body >
+<style>
+img {
+    max-width:400%;
+    height: auto;
+}
+</style>
 
-        <!-- HEADER AND NAVBAR -->
-        <header>
-            <nav class="navbar navbar-default">
-            <div class="container">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#">Angular Routing Example</a>
-                </div>
+<meta charset="ISO-8859-1">
+<title>Home</title>
 
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-                    <li><a href="#about"><i class="fa fa-shield"></i> About</a></li>
-                    <li><a href="#contact"><i class="fa fa-comment"></i> Contact</a></li>
-                       <li><a href="#blog"><i class="fa fa-comment"></i> Blog</a></li>
-                  <!--   <li><a href="#register"><i class="fa fa-comment"></i> SingUp</a></li>
-                    
-                    <li><a href="#login"data-ng-hide="globals.currentUser.islogged"><i class="glyphicon glyphicon-log-in"></i></a></li>
-                    
-                    
-               
-                       <li><a href="#login"><i class="fa fa-comment"></i> SingIn</a></li> -->
-                       <li><a href="#register" data-ng-hide="globals.currentUser.islogged"><i class="glyphicon glyphicon-user"></i></a></li>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+ 
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+<script type="text/javascript" src="resources/angular.min.js"></script>
+<script type="text/javascript" src="resources/angular-route.js"></script>
+<script type="text/javascript" src="resources/angular-cookies.js"></script>
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.1/sockjs.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script>
+
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="Users/userctrl.js"></script>
+<script type="text/javascript" src="Login/loginctrl.js"></script>
+<script type="text/javascript" src="Login/loginService.js"></script>
+<script type="text/javascript" src="Admin/admin.js"></script>
+<script type="text/javascript" src="Blog/blogctrl.js"></script>
+
+
+<link rel="stylesheet" href="resources/blog.css">
+<link rel="stylesheet" href="resources/register.css">
+<link rel="stylesheet" href="resources/user.css">
+<link rel="stylesheet" href="resources/login.css">
+<link rel="stylesheet" href="resources/comments.css">
+<script type="text/javascript" src="resources/login.js"></script>
+
+
+
+</head>
+<h1>
+		<center><center>
+	</h1>
+<body data-ng-app="myApp" data-ng-controller="UserController as vm"  >
+
+
+	          <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+             <div class="navbar-header">
+             
+				<a class="navbar-brand" href="#home"><b> </b>Home</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+				 <!-- <li><a href="#blog">Blog</a></li> 
+				 <li><a href="#viewblog">View Blogs</a></li> -->
+			
+				  <li class="dropdown" >
+				   <a class="dropdown-toggle" data-toggle="dropdown" >Blogs
+				               <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#blog">CreateBlog</a></li>
+          <li><a href="#viewblog">ViewBlog</a></li>
+          
+        </ul>
+      </li> 
+       <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Jobs
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li data-ng-show="currentuser.role=='Admin'"><a href="#jobs">CreateJob</a></li>
+          <li data-ng-show="currentuser.role=='Student'"><a href="#applyjob">ApplyJobs</a></li>
+          
+        </ul>
+      </li> 
+				<!--  <li><a href="#forum">Forum</a></li>
+				 <li><a href="#individualforum">View Forum</a></li> -->
+				 
+				  <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Forums
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#forum">CreateForum</a></li>
+          <li><a href="#viewforum">ViewForum</a></li>
+          
+        </ul>
+      </li> 
+					<li data-ng-hide="currentuser.role=='Admin'"><a href="#users">Find Friends</a></li>
+					<li data-ng-hide="currentuser.role=='Admin'"><a href="#chat">Chat</a></li>
+					
+					
+					
+					
+					</ul>
+					 <ul class="nav navbar-nav navbar-right">
+					 <li><a href="#register" data-ng-hide="globals.currentUser.islogged"><i class="glyphicon glyphicon-user"></i></a></li>
 					<li><a href="#login"
 						data-ng-hide="globals.currentUser.islogged"><i class="glyphicon glyphicon-log-in"></i></a></li>
 							
-                             <li class=style="padding-top:10px;" data-ng-show="globals.currentUser.islogged"><p style="color:white";>Welcome:{{globals.currentUser.username}}</p></li>
-                       
-                       
-                </ul>
-            </div>
-            </nav>
-        </header>
+                             <li class=style="padding-top:20px;" data-ng-show="globals.currentUser.islogged"><p style="color:white";>Welcome:{{globals.currentUser.username}}</p></li>
+                             <li data-ng-show="globals.currentUser.islogged"><a href="#myprofile">My Profile</a></li>
+<!--                               <li data-ng-show="globals.currentUser.islogged"><a href="" data-ng-click="vm.logout()"><i class="glyphicon glyphicon-log-out"></i></a></li>
+ -->                              <li><a href=""  data-ng-show="globals.currentUser.islogged"   data-ng-click="vm.logout()"><i class="glyphicon glyphicon-log-out"></i>logout</a></li>  
+							</ul><!-- {{currentUser.id}} -->
+							
+					</div>
+						</div>
+	
+		</nav>
+			
 
-        <!-- MAIN CONTENT AND INJECTED VIEWS -->
-        
+   
+		
 
-            <!-- angular templating -->
-            <!-- this is where content will be injected -->
-            
-            <div  data-ng-view></div>
+  
+ 
+		<div data-ng-view> </div>
 
-        
+    
 
-    </body>
-    </html>
+
+	
+</body>
+
+</html>
