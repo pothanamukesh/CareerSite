@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+
+</head>
+<body data-ng-app="myApp">
+<a href="#myfriends">My Friends</a>
+<a href="#newrequests">My Requests</a>
+<div data-ng-controller="alluserctrl">
+<div class="container" style="padding-top:10px">
+	<div class="row">
+        <div class="col-md-4 col-md-offset-3">
+         <form action="" class="search-form">
+                <div class="form-group has-feedback">
+	<input type="text" data-ng-model="search" placeholder="search users"  class="form-control">
+	 <span class="glyphicon glyphicon-search form-control-feedback"></span>
+	 </div>
+	 </form>
+	</div></div></div>
+<div data-ng-init="getAllUsers()">
+<div data-ng-repeat="user in users | filter:search">
+<hr>
+<div class="container bootstrap snippet">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="main-box no-header clearfix">
+                <div class="main-box-body clearfix">
+                    <div class="table-responsive">
+                        <table class="table user-list">
+                            <thead>
+                                <tr>
+                                <th><span>Friends List</span></th>
+                                <th><span>Gender</span></th>
+                                <th class="text-center"><span>Status</span></th>
+                                <th><span>Email</span></th>
+                                <th>&nbsp;</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <img data-ng-src="data:image/JPEG;base64,{{user.image}}" alt="no dp">
+                                        <a href="#" class="user-link">{{user.username}}</a>
+                                        <span class="user-subhead">{{user.role}}</span>
+                                    </td>
+                              <td>{{user.gender}}</td>
+                                    <td class="text-center">
+                                        <span class="label label-default">Accept</span>
+                                    </td>
+                                    <td>
+                                        <a href="#">{{user.mail}}</a>
+                                    </td>
+                                    <td style="width: 20%;">
+                                      <button data-ng-click="sendrequest(user.username)" class="btn btn-success">Send Request</button>  
+                                    </td>
+                                </tr>
+                                </tbody>
+                                </table>
+                                </div>
+                                </div>
+                                </div>
+                                </div>
+                                </div>
+                                </div>
+                       
+</div>
+</div>
+</div>
+</body>
+</html>
