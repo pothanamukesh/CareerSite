@@ -45,7 +45,8 @@
 	</div></div></div> 
 <div data-ng-init="getAllBlogs()">
 	 <div data-ng-repeat="blog in blogs | filter:search">
-
+Blog userid ={{blog.userid}}
+Current userid={{globals.currentUser.uid}}
 	
 	<div class="container">
 	<div class="row">
@@ -55,10 +56,37 @@
         		<hr>        
         		<p>{{blog.content}}</p>
         		<hr>
-              <p><button data-ng-show="blog.userid==globals.currentUser.username" data-ng-click="editblog(blog.id,blog.title,blog.content)" class="btn btn-success">edit</button>
-		<button data-ng-show="blog.userid==globals.currentUser.username" data-ng-click="deleteblog(blog.id)" class="btn btn-primary btn-danger">delete</button>
-		 <a href="#login"><button align="right" class="btn btn-primary" data-ng-click="like(blog.id)">Login To Like this Blog</button> </a>
+              <p><button data-ng-show="blog.userid==globals.currentUser.username" data-ng-click="editblog(blog.id,blog.title,blog.content)" class="btn btn-success">Edit</button>
+		<button data-ng-show="blog.userid==globals.currentUser.username" data-ng-click="deleteblog(blog.id)" class="btn btn-primary btn-danger">Delete</button>
+		
+		<button align="right" class="btn btn-primary"  data-ng-show="globals.currentUser.islogged" data-ng-click="like(blog.id)">Like this Blog</button>
+		
+         <div data-ng-init="getBlogUserLike(globals.currentUser.uid, blog.id)"></div>
+		
+		<!-- <div data-ng-repeat ="blogl in blogLikes">
+		Blog Like User id = {{blogl.userid}}
+		Global user id ={{globals.currentUser.uid}}
+		Blog Like Blog id = {{blogl.blogid}}
+		Blog id ={{blog.id}}
+		{{(blog.userid ==globals.currentUser.uid )&&(blogl.userid == globals.currentUser.uid)}}
+		<div data-ng-if ="(blog.userid ==blogl.userid )&&(blogl.userid != globals.currentUser.uid)">
+	
+		<button align="right" class="btn btn-primary"  data-ng-show="globals.currentUser.islogged" data-ng-click="like(blog.id)">Like this Blog</button>
+
+		</div> 
+		<div data-ng-else>
+		Hello
+		</div>
+		
+		
+		</div>
+ -->	
 		<i class="fa fa-thumbs-up"></i>{{blog.bloglike}}
+		<!-- <div data-ng-repeat ="blogl in blogLikes">
+		<p>{{blogl.userid}}</p>
+		<p>{{blog.userid}}</p>
+		</div> -->
+		
 		</p>
 	        	</div>
         </div></div></div>

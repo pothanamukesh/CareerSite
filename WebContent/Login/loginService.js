@@ -150,6 +150,7 @@ app.factory(
                                 authdata: authdata,
                                 islogged:true,
                                 role:user.role,
+                                uid : user.id
                             
                             }
                     	

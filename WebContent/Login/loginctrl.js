@@ -42,8 +42,7 @@ app.controller('UserController', [ '$http', '$scope', 'UserService',
 
 			self.login = function(user) {
 				console.log("authenticated...")
-				UserService
-						.login(self.user)
+				UserService.login(self.user)
 						.then(
 
 								function(d) {

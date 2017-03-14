@@ -1,21 +1,38 @@
 var app=angular.module("blogapp",[])
-app.controller('blogctrl', [ '$scope', '$http',function($scope, $http) {
+app.controller('blogctrl', [ '$scope', '$http','blogService','$rootScope',
+	function($scope, $http,blogService,$rootScope) {
 	var BASE_URL = 'http://localhost:8081/CareerSiteBackend';
-
+	$rootScope.likeLength =0;
+	$rootScope.blogLikes = 0;
 	$scope.getAllBlogs= function() {
 		console.log("get all blogs")
 		$http({
 			method : 'GET',
 			url : BASE_URL+'/blog'
 		}).success(function(data, status, headers, config) {
-			$scope.blogs=data;
-			angular.forEach($scope.blogs, function(value, key){
-			      //if(value.Password == "thomasTheKing")
-				var user=value.userid
-			         console.log(user);
-			   });
+//			$scope.blogs=data;
+//			angular.forEach($scope.blogs, function(value, key){
+//			    var user=value.userid
+//			       console.log("Blog user Id"+user);
+//			   });
+			
+			blogService.fetchAllblogLikes()
+			.then(
+			function(response){
+				//Success Data
+				$rootScope.blogLikes = response;
+				
+				$rootScope.likeLength = $scope.blogLikes.length;
+				console.log("Length: "+$rootScope.likeLength)
+				$scope.blogs=data;
+			}		,function(errResponse)
+			{
+				//error Data
+			}
+			);
+
 		}).error(function(data, status, headers, config) {
-			alert("Error");
+			alert("Error in Base_URL........................!");
 		});
 	};
 	$scope.submit = function() {
@@ -26,7 +43,27 @@ app.controller('blogctrl', [ '$scope', '$http',function($scope, $http) {
 			userid:$scope.userid,
 			doc:$scope.doc,
 			content : $scope.content,
-		}
+		},
+		 
+		
+		
+		this.fetchAllblogLikes = function() {
+			console.log("fetchAllblogLikes...")
+			blogService.fetchAllblogLikes()
+					.then(
+							function(d) {
+								$scope.blog = d;
+							},
+							function(errResponse) {
+								console.error('Error while fetching BLOgLikes');
+							});
+		};
+		
+		//self.fatchAllblogLikes();
+		
+		
+		
+		
 		$http({
 			method : 'POST',
 			url : BASE_URL + '/createblog',
@@ -54,6 +91,22 @@ app.controller('blogctrl', [ '$scope', '$http',function($scope, $http) {
 		$scope.content=content;
 	};
 	$scope.like=function(id){
+		console.log("fetch bloglikes start.....!!")
+		blogService.fetchAllblogLikes()
+		.then(
+				function(d){
+					$scope.blog=d;
+					angular.forEach($scope.blog, function(value, key){
+					    var user=value.userid
+					       console.log("userid=="+user);
+					   });
+					console	.log("Scope Data=== "	+$scope.blog)
+					if($scope.blog.id==$scope.blogs.id)
+						{}
+					else
+						{}
+				});
+
 		$http({
 			method : 'POST',
 			url : BASE_URL + '/likeblog/'+id,
@@ -61,5 +114,21 @@ app.controller('blogctrl', [ '$scope', '$http',function($scope, $http) {
 			alert("success")
 		})
 		
+	},
+	
+	$scope.getBlogUserLike = function(userid, blogid)
+	{
+		$scope.i = 0;
+//		$scope.j = $scope.blogLikes.length;
+		console.log("Like Data: "+$rootScope.blogLikes)
+		console.log("helllo: "+$rootScope.likeLength)
+
+		
+		angular.forEach($rootScope.blogLikes, function(value, key){
+//			    var user=value.userid
+			console.log("Check : "+(value.userid == userid)&&(value.blogid == blogid))
+			if((value.userid == userid)&&(value.blogid == blogid)){
+			       console.log("Blog user Id"+value.userid+" Blog id: "+value.blogid);}
+			   });
 	}
 	        }]);

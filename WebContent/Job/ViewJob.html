@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style type="text/css">
+.btn1 {
+    height: 30px;
+    position: absolute;
+    right: 0;
+    top: 5px;
+    border-radius:1px;
+}
+</style>
+</head>
+
+<body data-ng-app="myApp">
+<div data-ng-init="getjobs()">
+<div data-ng-repeat="job in jobs">
+<div class="container">
+	<div class="row">
+ <div class="span3">
+        	<div class="well">
+        		<h1>Job Title:</h1><h2 class="text-info">{{job.title}}</h2>  
+
+<div class="span3">
+        	
+        		<h3 class="text-info">{{job.company}}</h3></div>
+
+<div class="span3">
+        	
+        		<h3 class="text-info">{{job.jobdetails}}</h3>  </div>
+<div class="span3">
+        
+        		<h3 class="text-info">{{job.jobdetails}}</h3></div>
+        		<button type="button" class="btn btn-primary" onclick="alert('Thanks u r successfully applied for this job')">Apply Job!</button>
+</div></div></div></div></div></div>
+
+
+</body>
+</html>
