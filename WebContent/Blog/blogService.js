@@ -6,7 +6,7 @@ app.factory(
             '$q',
             '$rootScope','$cookieStore',
             function($http, $q, $rootScope,$cookieStore) {
-                console.log("blogService...")
+                console.log("blogService is started......!")
 
                 var BASE_URL = 'http://localhost:8081/CareerSiteBackend';
                     return {

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<!-- <script type="text/javascript" src="chatController.js"></script>
+<script type="text/javascript" src="chatService.js"></script> -->
+</head>
+<body data-ng-app="myApp">
+<div data-ng-controller="chatController">
+<form data-ng-submit="addMessage()" name="messageForm" align="center">
+<input type="text" placeholder="Enter new Message" data-ng-model="message">
+<input type="submit" value="send">
+</form>
+<p data-ng-repeat="message in messages | orderBy:'time':true" >
+<time>{{message.time | date:'HH:mm'}}</time>
+<span >{{message.message}}</span>
+</p>
+</div>
+</body>
+</html>

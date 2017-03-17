@@ -1,15 +1,153 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<style>
+img {
+    max-width:400%;
+    height: auto;
+}
+</style>
+
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Home Page</title>
+
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+ 
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.1/sockjs.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script>
+
+
+<link rel="stylesheet" href="resources/blog.css">
+<link rel="stylesheet" href="resources/register.css">
+<link rel="stylesheet" href="resources/user.css">
+<link rel="stylesheet" href="resources/login.css">
+<link rel="stylesheet" href="resources/comments.css">
+<!-- <script type="text/javascript" src="resources/login.js"></script>
+ -->
+
 
 </head>
-<body data-ng-app='myApp' >
 
-<div  data-ng-show="globals.currentUser.islogged"><a  href="" data-ng-click="vm.logout()">logout</a></div>  
-{{globals.currentUser.role}}
-<h1>Home Page</h1>
+<body  data-ng-app="blogapp">
 
+	       
+			
+			 <section id="home" class="text-center">
+         
+                <div id="carousel-example" class="carousel slide" data-ride="carousel">
+
+                    <div class="carousel-inner">
+                        <div class="item active">
+
+                            <img src="resources/imgs/collaboration-at-work.jpg" alt="" />
+                            <div class="carousel-caption" >
+                                <h4 class="back-light">Focus ON COLLABORATION!!!Instead Of Competition.</h4>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="resources/imgs/collaboration-at-work.jpg" alt="" />
+                            <div class="carousel-caption ">
+                                <h4 class="back-light">CREATIVE COLLABORATION IS AWESOME.</h4>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="resources/imgs/collaboration-at-work.jpg" alt="" />
+                            <div class="carousel-caption ">
+                                <h4 class="back-light"> EQUALS INNOVATION.</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example" data-slide-to="1"></li>
+                        <li data-target="#carousel-example" data-slide-to="2"></li>
+                    </ol>
+                </div>
+           
+       </section>
+       		<br><br>	
+		<br><br>
+  
+	<div data-ng-init="getAllBlogs()">
+	 <div data-ng-repeat="blog in blogs | filter:search">
+	<div class="container">
+	<div class="row">
+ <div class="span3">
+        	<div class="well">
+        		<h2 class="text-info">{{blog.title}}</h2>  
+        		<hr>        
+        		<p>{{blog.content}}</p>
+        		<hr>
+              <p><button data-ng-show="blog.userid==globals.currentUser.uid" data-ng-click="editblog(blog.id,blog.title,blog.content)" class="btn btn-success">Edit</button>
+		<button data-ng-show="blog.userid==globals.currentUser.uid" data-ng-click="deleteblog(blog.id)" class="btn btn-primary btn-danger">Delete</button>
+		<div data-ng-if="(blog.userid==globals.currentUser.uid)">
+		<button align="right" class="btn btn-primary"  data-ng-show="globals.currentUser.islogged" data-ng-click="like(blog.id)">Like this Blog</button>
+
+		         		
+		<i class="fa fa-thumbs-up"></i>{{blog.bloglike}}
+
+		
+
+	        	</div>
+        </div></div></div>
+	
+	</div> 
+	</div>
+
+  
+  
+		
+		<br><br>	
+		<br><br>
+    <section id="footer-sec" >
+             
+            <div class="container">
+           <div class="row  pad-bottom" >
+            <div class="col-md-4">
+                <h4> <strong>ABOUT COMPANY</strong> </h4>
+                            <p>
+                               CareerSite.Com is one of the largest Alumini Site.<br>
+                                IT COLLABORATE students and employees in one site.<br>
+                                CareerSite.Com many followers all over INDIA.
+                            </p>
+                <a href="#" >read more</a>
+                </div>
+               <div class="col-md-4">
+                    <h4> <strong>SOCIAL LINKS</strong> </h4>
+                   <p>
+                     <a href="#"><i class="fa fa-facebook-square fa-3x"  ></i></a>  
+                        <a href="#"><i class="fa fa-twitter-square fa-3x"  ></i></a>  
+                        <a href="#"><i class="fa fa-linkedin-square fa-3x"  ></i></a>  
+                       <a href="#"><i class="fa fa-google-plus-square fa-3x"  ></i></a>  
+                   </p>
+                </div>
+               <div class="col-md-4">
+                   <h4> <strong>OUR LOCATION</strong> </h4>
+                            <p>
+                               KPHB coloney<br>
+                               Kumatpally<br>
+                              Hyderbad,500072.
+                            </p>
+                    <a href="#" class="btn btn-primary" >SEND QUERY</a>
+                </div>
+               </div>
+            </div>
+    </section>         
+    
+
+
+	
 </body>
+
 </html>

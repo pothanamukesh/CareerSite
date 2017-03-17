@@ -92,14 +92,14 @@ function run($rootScope, $location, $cookieStore, $http) {
 
     $rootScope.$on('$locationChangeStart', function (event, next, current) {
         // redirect to login page if not logged in and trying to access a restricted page
-        var restrictedPage = $.inArray($location.path(), ['/login', '/register','/home','/viewforum']) === -1;
+        var restrictedPage = $.inArray($location.path(), ['/login', '/register','/home','/viewforum','/viewblog']) === -1;
         var adminPage = $.inArray($location.path(),['/admin']) === 1;
         var role=$rootScope.currentUser.role;
         var loggedIn = $rootScope.globals.currentUser;
         if (restrictedPage && !loggedIn) {
-            $location.path('/login');
+            $location.path('/home');
         }else if(adminPage && !loggedIn){
-        	$location.path('/login');
+        	$location.path('/home');
         }
     });
 }

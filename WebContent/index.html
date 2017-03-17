@@ -6,6 +6,11 @@ img {
 	max-width: 400%;
 	height: auto;
 }
+#navbarid
+{
+	background:url(resources/imgs/apex-top-bar.gif);
+   color:white;
+}
 </style>
 <meta charset="ISO-8859-1">
 <title>Home</title>
@@ -34,12 +39,13 @@ img {
 <script type="text/javascript" src="Admin/admin.js"></script>
 <script type="text/javascript" src="Blog/blogctrl.js"></script>
 <script type="text/javascript" src="Blog/blogService.js"></script>
-
 <script type="text/javascript" src="Forum/forumctrl.js"></script>
 <script type="text/javascript" src="Forum/commentctrl.js"></script>
 <script type="text/javascript" src="Friend/myfriendsctrl.js"></script>
 <script type="text/javascript" src="Friend/allUsersCtrl.js"></script>
 <script type="text/javascript" src="Job/jobctrl.js"></script>
+<script type="text/javascript" src="Chat/chatController.js"></script>
+<script type="text/javascript" src="Chat/chatService.js"></script>
 
 
 
@@ -53,7 +59,7 @@ img {
 </head>
 
 <body data-ng-app="myApp" data-ng-controller="UserController as vm">
-<nav class="navbar navbar-inverse"> 
+<nav class="navbar" id="navbarid"> 
   
   <!-- <div class="container-fluid">
     <div class="navbar-header">
@@ -100,10 +106,10 @@ img {
         
 			<!--        Friends-->
         <li data-ng-hide="currentUser.role=='Admin'">
-        	<a href="#users">Find Friends</a>
+        	<a href="#users" data-ng-show="globals.currentUser.islogged">Find Friends</a>
         </li>
         <li data-ng-hide="currentUser.role=='Admin'">
-        	<a href="#chat">Chat</a>
+        	<a href="#chat" data-ng-show="globals.currentUser.islogged">Chat</a>
          </li>
       </ul>
    
